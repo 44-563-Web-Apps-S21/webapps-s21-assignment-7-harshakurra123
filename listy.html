@@ -42,15 +42,32 @@
 	
 </body>
 <script>
-	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = document.getElementById("input1").value
-		element.style.color = "orange"
+    
+	function makeNewDiv() {
+        const element = document.createElement("div");
+        element.innerHTML = document.getElementById("input1").value;
+        element.setAttribute('class', 'listy');
+        element.style.color = "green";
 
-		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-		
-	}
+        let listyItems = document.getElementsByClassName("listy");
+        len = listyItems.length;
+        var j = 0;
+        console.log(listyItems)
+        if (len > 8) {
+            for (var i = 8; i > 0; i--) {
+                console.log(listyItems[i].innerHTML)
+                if (listyItems[i].innerHTML == element.innerHTML) {
+                    listyItems[i].remove();
+                    console.log("We are getting rid of duplicates");
+                    j = 1;
+                }
+            }
+            if (j == 0) {
+                listyItems[0].remove();
+                console.log("We get rid of the first item.")
+            }
+        }
+        document.getElementById('target').appendChild(element)
+    }
 </script>
 </html>	
