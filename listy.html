@@ -52,7 +52,6 @@
         let listyItems = document.getElementsByClassName("listy");
         len = listyItems.length;
         var j = 0;
-        console.log(listyItems)
         if (len > 8) {
             for (var i = 8; i > 0; i--) {
                 console.log(listyItems[i].innerHTML)
@@ -63,7 +62,8 @@
                 }
             }
             if (j == 0) {
-                listyItems[0].remove();
+                var random = Math.floor(Math.random() * 9);
+                listyItems[random].remove();
                 console.log("We get rid of the first item.")
             }
         }
